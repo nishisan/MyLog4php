@@ -58,7 +58,7 @@ The filter option accepts glob like filter so the wildcard mark is *
 Usage example
 -------------
 <pre>
-<?php
+ <?php
 
 /**
  * Require the class file;
