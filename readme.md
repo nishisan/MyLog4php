@@ -49,7 +49,9 @@ Multiple logging files
 In order to have multiple logging files you´ll have to create a filter.<br>
 For instance lets say you have a file called login.php and you want all messages from login.php to be logged in '/tmp/login.log'<br>
 Create a filter like:
- $CONFIG["LOGGER"]["FILTER"]["login.php"] = "/tmp/login.log";
+<pre>
+    $CONFIG["LOGGER"]["FILTER"]["login.php"] = "/tmp/login.log";
+</pre>
 
 The filter option accepts glob like filter so the wildcard mark is *
 
