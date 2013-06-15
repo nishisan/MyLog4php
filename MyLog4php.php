@@ -19,8 +19,7 @@ class MyLog4php {
      * Default constructor.
      * @global type $CONFIG
      */
-    function __construct() {
-        global $CONFIG;
+    function __construct($CONFIG) {
         $this->CONFIG = $CONFIG;
     }
 
@@ -51,9 +50,9 @@ class MyLog4php {
      * @param type $severity
      */
     private function log($logmsg, $severity) {
-        global $CONFIG;
+
         $f = $_SERVER ['SCRIPT_FILENAME'];
-        $f = str_replace($CONFIG ["APP_PATH"], "", $f);
+        $f = str_replace($this->CONFIG ["APP_PATH"], "", $f);
         $this->setFile($f);
         fwrite($this->fh, $this->getmicrotime() . " - " . $f . " [$severity] - " . $logmsg . "\n");
         fclose($this->fh);
@@ -95,9 +94,9 @@ class MyLog4php {
      * @param type $logmsg
      */
     public function logQuery($logmsg) {
-        global $CONFIG;
+
         $f = $_SERVER ['SCRIPT_FILENAME'];
-        $f = str_replace($CONFIG ["APP_PATH"], "", $f);
+        $f = str_replace($this->CONFIG ["APP_PATH"], "", $f);
         if ($CONFIG ["DEBUG_QUERY"]) {
             fwrite($this->fh, $this->getmicrotime() . " - " . $f . " -> \n" . $logmsg . "\n");
         }
